@@ -12,7 +12,7 @@ const Form = () => {
   const onSubmit = (data) => console.log(data);
 
   return (
-    <div className="max-w-2xl mx-auto p-4 rounded-lg  border-2 order-2 mt-10 bg-white">
+    <div className="max-w-2xl mx-auto p-4 rounded  border-2 order-2 mt-10 bg-white">
       <div className="flex flex-col justify-center items-center my-4">
         <h1 className="text-bold text-3xl">Appointment Request Form</h1>
         <p className="text-semibold ">Let us know how we can help you!</p>
@@ -228,7 +228,7 @@ const Form = () => {
         <div className="flex justify-center">
           <input
             type="submit"
-            className="bg-blue-500 rounded-md mt-3 text-white p-2"
+            className="bg-blue-500 rounded mt-3 text-white p-2"
           />
         </div>    
       </form>

@@ -1,51 +1,62 @@
 import React from "react";
-import { FaHeading } from "react-icons/fa";
-import { BsFilePersonFill } from "react-icons/bs";
+import { FaFileSignature, FaHeading } from "react-icons/fa";
+import { BsFilePersonFill, BsCart3, BsCalendarDate } from "react-icons/bs";
 import { CgMail } from "react-icons/cg";
 import { IoLocationSharp } from "react-icons/io5";
 import { FaPhone } from "react-icons/fa6";
+import { MdAbc } from "react-icons/md";
+import { RiNumber2 } from "react-icons/ri";
+import "../App.css";
 
 const Sidebar = ({ closeSidebar }) => {
-  return (
-    <div className="  max-w-sm">
-      <div className="fixed bg-slate-700 text-white h-screen flex flex-col items-center py-4">
-        <button
-          className="flex text-white cursor-pointer text-2xl ml-auto mb-2"
-          onClick={closeSidebar}
-        >
-          ❌
-        </button>
+  const sideBarItems = [
+    { icon: <FaHeading size={30} />, text: "Heading" },
+    { icon: <BsFilePersonFill size={30} />, text: "Full Name" },
+    { icon: <CgMail size={30} />, text: "E-mail" },
+    { icon: <IoLocationSharp size={30} />, text: "Address" },
+    { icon: <FaPhone size={30} />, text: "Phone" },
+    { icon: <BsCalendarDate size={30} />, text: "Date" },
+    { icon: <FaFileSignature size={30} />, text: "Signature" },
+    { icon: <MdAbc size={30} />, text: "Fill in the blanks" },
+    { icon: <BsCalendarDate size={30} />, text: "Appointment" },
+    { icon: <BsCart3 size={30} />, text: "Product List" },
+    { icon: <RiNumber2 size={30} />, text: "Number" },
+  ];
 
-        <div className="flex items-center border-2 border-slate-700 bg-slate-600 w-full ">
-          <p className="bg-gray-700 p-3">
-            <FaHeading size={20} className="" />
-          </p>
-          <p className="bg-gray-600 text-xl p-2 text-white">Heading</p>
+  return (
+    <div className="max-w-sm overflow-y-auto sidebar">
+      <div className="bg-slate-700 text-white h-screen">
+        <div className="bg-slate-600 flex items-center p-2">
+          <p className="text-2xl">Form Element</p>
+          <button
+            className="text-white cursor-pointer text-2xl ml-auto"
+            onClick={closeSidebar}
+          >
+            ❌
+          </button>
         </div>
-        <div className="flex items-center border-2 border-slate-700 bg-slate-600 w-full ">
-          <p className="bg-gray-700 p-3">
-            <BsFilePersonFill size={20} className="" />
+
+        <div className="flex items-center justify-evenly text-xl p-2">
+          <p className="hover:border-b-4 border-b-4 border-transparent hover:border-yellow-500">
+            BASIC
           </p>
-          <p className="bg-gray-600 text-xl p-2 text-white">Full Name</p>
-        </div>
-        <div className="flex items-center border-2 border-slate-700 bg-slate-600 w-full">
-          <p className="bg-gray-700 p-3">
-            <CgMail size={20} className="" />
+          <p className="hover:border-b-4 border-b-4 border-transparent hover:border-yellow-500">
+            PAYMENTS
           </p>
-          <p className="bg-gray-600 text-xl p-2 text-white">E-mail</p>
-        </div>
-        <div className="flex items-center border-2 border-slate-700 bg-slate-600 w-full">
-          <p className="bg-gray-700 p-3">
-            <IoLocationSharp size={20} className="" />
+          <p className="hover:border-b-4 border-b-4 border-transparent hover:border-yellow-500">
+            WIDGETS
           </p>
-          <p className="bg-gray-600 text-xl p-2 text-white">Address</p>
         </div>
-        <div className="flex items-center border-2 border-slate-700 bg-slate-600 w-full">
-          <p className="bg-gray-700 p-3">
-            <FaPhone size={20} className="" />
-          </p>
-          <p className="bg-gray-600 text-xl p-2 text-white">Phone</p>
-        </div>
+
+        {sideBarItems.map((entry, index) => (
+          <div
+            key={index}
+            className="group flex items-center border-2 border-slate-700 bg-slate-600 w-full   "
+          >
+            <p className="bg-gray-700 p-2">{entry.icon}</p>
+            <p className="bg-gray-600 text-xl p-1 text-white">{entry.text}</p>
+          </div>
+        ))}
       </div>
     </div>
   );

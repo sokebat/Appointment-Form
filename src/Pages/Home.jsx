@@ -4,14 +4,17 @@ import Sidebar from "../Components/Sidebar";
 
 const Home = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+  // const [isHomeOpen, setIsHomeOpen] = useState(true);
 
   const toggleSidebar = () => {
-    console.log("toggled");
+    // console.log("toggled");
     setIsSidebarOpen(!isSidebarOpen);
+    // setIsHomeOpen(false);
   };
 
   const closeSidebar = () => {
     setIsSidebarOpen(false);
+    // setIsHomeOpen(true);
   };
 
   return (
