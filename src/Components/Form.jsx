@@ -23,7 +23,7 @@ const Form = () => {
           <label htmlFor="fullName" className="block my-3   ">
             Full Name
           </label>
-          <div className="flex justify-center gap-4 ">
+          <div className="flex flex-col md:flex-row md:justify-between gap-4 ">
             <div className="w-full">
               <input
                 {...register("firstName", { required: true, maxLength: 20 })}
@@ -59,7 +59,7 @@ const Form = () => {
           </div>
         </div>
         <div>
-          <div className="flex gap-4 mx-0">
+          <div className="flex flex-col md:flex-row md:justify-between gap-4 ">
             <div className="w-full">
               <label htmlFor="contactNumber" className="block my-3 ">
                 Contact Number
@@ -106,7 +106,9 @@ const Form = () => {
                 }`}
               />
               {errors.email ? (
-                <span className="text-red-500 text-sm">{errors.email.message}</span>
+                <span className="text-red-500 text-sm">
+                  {errors.email.message}
+                </span>
               ) : (
                 <span className="text-sm mx-3">example@example.com</span>
               )}
@@ -153,7 +155,7 @@ const Form = () => {
               <span className="text-sm mx-3">Street Address Line 2</span>
             )}
 
-            <div className="flex justify-center gap-4 ">
+            <div className="flex flex-col md:flex-row md:justify-between gap-4 ">
               <div className="w-full">
                 <input
                   {...register("city", { required: true, maxLength: 20 })}
@@ -219,10 +221,16 @@ const Form = () => {
           )}
         </div>
 
-        <input
-          type="submit"
-          className="bg-blue-500 rounded-md mt-3 text-white p-2"
-        />
+        <div className="">
+          <p> Would you like to be notified about promotional services? </p>
+        </div>
+
+        <div className="flex justify-center">
+          <input
+            type="submit"
+            className="bg-blue-500 rounded-md mt-3 text-white p-2"
+          />
+        </div>    
       </form>
     </div>
   );
