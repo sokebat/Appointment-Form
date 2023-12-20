@@ -1,8 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import InputMask from "react-input-mask";
+import { Switch } from "./Shadcn/ui/switch";
+import { Label } from "./Shadcn/ui/label";
 
 const Form = () => {
+  const [isYes, setIsYes] = useState(false);
+  const [isNo, setIsNo] = useState(false);
   const {
     register,
     handleSubmit,
@@ -68,8 +72,8 @@ const Form = () => {
                 {...register("phoneNumber", {
                   required: true,
                 })}
-                mask="(999) 999-9999"
-                placeholder="(___) ___-____"
+                mask="(+999) 9999-999-999"
+                placeholder="(+977) ____-___-___"
                 className={`w-full border-2 border-gray-400 p-2 outline-none ${
                   errors.phoneNumber
                     ? "border-red-500"
@@ -223,6 +227,28 @@ const Form = () => {
 
         <div className="">
           <p> Would you like to be notified about promotional services? </p>
+          <div className="flex items-center justify-around mt-3">
+            <div className=" flex items-center">
+              <Switch
+                checked={isYes}
+                onClick={() => {
+                  setIsNo(false);
+                  setIsYes(true);
+                }}
+              ></Switch>
+              <Label className={"text-xl ml-2 "}> Yes</Label>
+            </div>
+            <div className=" flex items-center">
+              <Switch
+                checked={isNo}
+                onClick={() => {
+                  setIsYes(false);
+                  setIsNo(true);
+                }}
+              ></Switch>
+              <Label className={"text-xl ml-2 "}>No</Label>
+            </div>
+          </div>
         </div>
 
         <div className="flex justify-center">
@@ -230,7 +256,7 @@ const Form = () => {
             type="submit"
             className="bg-blue-500 rounded mt-3 text-white p-2"
           />
-        </div>    
+        </div>
       </form>
     </div>
   );

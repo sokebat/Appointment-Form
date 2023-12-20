@@ -6,6 +6,10 @@ import { IoLocationSharp } from "react-icons/io5";
 import { FaPhone } from "react-icons/fa6";
 import { MdAbc } from "react-icons/md";
 import { RiNumber2 } from "react-icons/ri";
+import { FaImages } from "react-icons/fa6";
+import { IoTimeOutline } from "react-icons/io5";
+import { FaFileUpload } from "react-icons/fa";
+
 import "../App.css";
 
 const Sidebar = ({ closeSidebar }) => {
@@ -21,6 +25,9 @@ const Sidebar = ({ closeSidebar }) => {
     { icon: <BsCalendarDate size={30} />, text: "Appointment" },
     { icon: <BsCart3 size={30} />, text: "Product List" },
     { icon: <RiNumber2 size={30} />, text: "Number" },
+    { icon: <FaImages size={30} />, text: "Image" },
+    { icon: <IoTimeOutline size={30} />, text: "Time" },
+    { icon: <FaFileUpload size={30} />, text: "File Upload" },
   ];
 
   return (
