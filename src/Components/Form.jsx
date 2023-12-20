@@ -3,7 +3,7 @@ import { useForm } from "react-hook-form";
 import InputMask from "react-input-mask";
 import { Switch } from "./Shadcn/ui/switch";
 import { Label } from "./Shadcn/ui/label";
-
+import { DatePickerDemo } from "./DatePickerDemo";
 const Form = () => {
   const [isYes, setIsYes] = useState(false);
   const [isNo, setIsNo] = useState(false);
@@ -22,7 +22,7 @@ const Form = () => {
         <p className="text-semibold ">Let us know how we can help you!</p>
       </div>
       <hr className="bg-gray-700 w-full" />
-      <form className=" " onSubmit={handleSubmit(onSubmit)}>
+      <form className="p-4 " onSubmit={handleSubmit(onSubmit)}>
         <div className=" ">
           <label htmlFor="fullName" className="block my-3   ">
             Full Name
@@ -202,6 +202,36 @@ const Form = () => {
             ) : (
               <span className="text-sm mx-3"> Postal / Zip Code</span>
             )}
+          </div>
+        </div>
+
+        <div className="my-4">
+          <span>
+            Any other specific date and time, if the above selection is not
+            suitable.
+          </span>
+          <div className="flex justify-between items-center p-2">
+            <DatePickerDemo
+              {...register("Date", {})}
+              className="flex-1 border-2 border-gray-400 p-2 outline-none rounded"
+            />
+
+            <InputMask
+              {...register("Time", {
+                required: true,
+              })}
+              mask="99:99"
+              placeholder="10:30"
+              className="w-12 border-2 border-gray-400 px-2 py-1 outline-none rounded"
+            />
+
+            <select
+              {...register("Period", { required: true })}
+              className="border-2 border-gray-400 p-1 outline-none rounded"
+            >
+              <option value="AM">AM</option>
+              <option value="PM">PM</option>
+            </select>
           </div>
         </div>
 
