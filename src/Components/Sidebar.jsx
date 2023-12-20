@@ -1,14 +1,18 @@
-import React from "react";
-import { FaFileSignature, FaHeading } from "react-icons/fa";
-import { BsFilePersonFill, BsCart3, BsCalendarDate } from "react-icons/bs";
-import { CgMail } from "react-icons/cg";
-import { IoLocationSharp } from "react-icons/io5";
-import { FaPhone } from "react-icons/fa6";
-import { MdAbc } from "react-icons/md";
-import { RiNumber2 } from "react-icons/ri";
-import { FaImages } from "react-icons/fa6";
-import { IoTimeOutline } from "react-icons/io5";
-import { FaFileUpload } from "react-icons/fa";
+import {
+  FaFileSignature,
+  FaHeading,
+  BsFilePersonFill,
+  BsCart3,
+  BsCalendarDate,
+  CgMail,
+  IoLocationSharp,
+  FaPhone,
+  MdAbc,
+  RiNumber2,
+  FaImages,
+  IoTimeOutline,
+  FaFileUpload,
+} from "@/Components/index";
 
 import "../App.css";
 
