@@ -1,39 +1,11 @@
 import {
-  FaFileSignature,
-  FaHeading,
-  BsFilePersonFill,
-  BsCart3,
-  BsCalendarDate,
-  CgMail,
-  IoLocationSharp,
-  FaPhone,
-  MdAbc,
-  RiNumber2,
-  FaImages,
-  IoTimeOutline,
-  FaFileUpload,
-} from "@/Components/index";
-
+  SortableContext,
+  verticalListSortingStrategy,
+} from "@dnd-kit/sortable";
+import SidebarItem from "./SidebarItem";
 import "../App.css";
 
-const Sidebar = ({ closeSidebar }) => {
-  const sideBarItems = [
-    { icon: <FaHeading size={30} />, text: "Heading" },
-    { icon: <BsFilePersonFill size={30} />, text: "Full Name" },
-    { icon: <CgMail size={30} />, text: "E-mail" },
-    { icon: <IoLocationSharp size={30} />, text: "Address" },
-    { icon: <FaPhone size={30} />, text: "Phone" },
-    { icon: <BsCalendarDate size={30} />, text: "Date" },
-    { icon: <FaFileSignature size={30} />, text: "Signature" },
-    { icon: <MdAbc size={30} />, text: "Fill in the blanks" },
-    { icon: <BsCalendarDate size={30} />, text: "Appointment" },
-    { icon: <BsCart3 size={30} />, text: "Product List" },
-    { icon: <RiNumber2 size={30} />, text: "Number" },
-    { icon: <FaImages size={30} />, text: "Image" },
-    { icon: <IoTimeOutline size={30} />, text: "Time" },
-    { icon: <FaFileUpload size={30} />, text: "File Upload" },
-  ];
-
+const Sidebar = ({ closeSidebar, sideBarItems }) => {
   return (
     <div className="max-w-sm overflow-y-auto sidebar">
       <div className="bg-slate-700 text-white h-screen">
@@ -59,15 +31,18 @@ const Sidebar = ({ closeSidebar }) => {
           </p>
         </div>
 
-        {sideBarItems.map((entry, index) => (
-          <div
-            key={index}
-            className="group flex items-center border-2 border-slate-700 bg-slate-600 w-full   "
+        <div className="">
+          <SortableContext
+            items={sideBarItems.map((data) => {
+              return data.id;
+            })} //need to send pritimive value not refrential value
+            strategy={verticalListSortingStrategy}
           >
-            <p className="bg-gray-700 p-2">{entry.icon}</p>
-            <p className="bg-gray-600 text-xl p-1 text-white">{entry.text}</p>
-          </div>
-        ))}
+            {sideBarItems.map((sideBarItem, index) => (
+              <SidebarItem key={index} sideBarItem={sideBarItem} />
+            ))}
+          </SortableContext>
+        </div>
       </div>
     </div>
   );

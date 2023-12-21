@@ -4,9 +4,11 @@ import InputMask from "react-input-mask";
 import { Switch } from "./Shadcn/ui/switch";
 import { Label } from "./Shadcn/ui/label";
 import { DatePickerDemo } from "./DatePickerDemo";
+
 const Form = () => {
   const [isYes, setIsYes] = useState(false);
   const [isNo, setIsNo] = useState(false);
+
   const {
     register,
     handleSubmit,
@@ -16,7 +18,7 @@ const Form = () => {
   const onSubmit = (data) => console.log(data);
 
   return (
-    <div className="max-w-2xl mx-auto p-4 rounded  border-2 order-2 mt-10 bg-white">
+    <div className="max-w-2xl mx-auto p-4 rounded border-2 order-2 mt-10 bg-white">
       <div className="flex flex-col justify-center items-center my-4">
         <h1 className="text-bold text-3xl">Appointment Request Form</h1>
         <p className="text-semibold ">Let us know how we can help you!</p>
